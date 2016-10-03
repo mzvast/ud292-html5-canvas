@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Loading Image Code</title>
+    <style>
+    .container {
+        border: dashed pink 2px;
+        width: 100%;
+        overflow-x: hidden;
+    }
+    #thing{
+      position: relative;
+    }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <img id="thing" src="../../html5-canvas-basics/image-load/logo.jpg" width="200" height="200">
+</div>
+    <script>
+    var theContainer = document.querySelector(".container");
+    var theThing = document.querySelector("#thing");
+    var currentPos = 0;
+    console.log(theContainer.offsetWidth,theThing.offsetWidth)
+    function moveThing() {
+      currentPos += 5;
+      if (currentPos > theContainer.offsetWidth) {
+        currentPos = - theThing.offsetWidth;
+      }
+      theThing.style.left = currentPos + "px";
+      window.requestAnimationFrame(moveThing);
+    }
+    moveThing();
+    
+
+    
+    </script>
+</body>
+
+</html>
